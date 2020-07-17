@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_nav_back">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/nunito_sans"
+                android:text="Add Bouncer"
+                android:textColor="#000"
+                android:singleLine="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_edittext"
+                android:hint="Email Address"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/enabled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Enabled"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:maxLength="1"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/host"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Host"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Port"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Username"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Password"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/mailbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Mail Box"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/mailType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="-2dp"
+                android:background="@drawable/middle_edittext"
+                android:fontFamily="@font/nunito_sans"
+                android:hint="Mail Type"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:lineSpacingExtra="5.3sp"
+                android:padding="20dp"
+                android:singleLine="true"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/deleteLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Delete Level"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:maxLength="1"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/spamHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Spam Header"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/notifyOwner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_edittext"
+                android:hint="Notify Owner"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:maxLength="1"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <Button
+                android:id="@+id/addBouncer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/purple_back"
+                android:text="Add Bouncer"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:fontFamily="@font/nunito_sans"
+                android:padding="5dp"
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="20dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

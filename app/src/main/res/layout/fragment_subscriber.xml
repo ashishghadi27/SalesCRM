@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bottom_nav_back">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/nunito_sans"
+                android:text="Add Subscriber"
+                android:textColor="#000"
+                android:singleLine="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/responderId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/top_edittext"
+                android:hint="Responder ID"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/sentMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Sent Message"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Email Address"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/timeJoined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Time Joined"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/realTimeJoined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Real Time Joined"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/canReceiveHTML"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Can Receive HTML"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:maxLength="1"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/lastActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Last Activity"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="First Name"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Last Name"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/ipAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="IP Address"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/referralSource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Referral Source"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/uniqueCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/middle_edittext"
+                android:hint="Unique Code"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <EditText
+                android:id="@+id/confirmed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_edittext"
+                android:hint="Confirmed"
+                android:imeOptions="actionNext"
+                android:padding="20dp"
+                android:textSize="15sp"
+                android:maxLength="1"
+                android:inputType="number"
+                android:singleLine="true"
+                android:layout_marginTop="-2dp"
+                android:layout_marginHorizontal="20dp"
+                android:fontFamily="@font/nunito_sans"
+                android:lineSpacingExtra="5.3sp"
+                />
+
+            <Button
+                android:id="@+id/addSubscriber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/purple_back"
+                android:text="Add Subscriber"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:fontFamily="@font/nunito_sans"
+                android:padding="5dp"
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="20dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
