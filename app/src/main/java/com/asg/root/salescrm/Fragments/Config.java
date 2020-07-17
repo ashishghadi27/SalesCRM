@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.asg.root.salescrm.R;
+import com.asg.root.salescrm.Utils.AppUtils;
 import com.asg.root.salescrm.Views.DataView;
 import com.asg.root.salescrm.presenter.VitalFunctionsPresenter;
 
@@ -46,6 +47,7 @@ public class Config extends BaseFragment implements DataView {
     private EditText edtDailyLimit;
     private EditText edtDailyCount;
     private EditText edtDailyReset;
+    private Dialog dialog;
 
     private Button addConfig;
 
@@ -63,6 +65,7 @@ public class Config extends BaseFragment implements DataView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        vitalFunctionsPresenter = new VitalFunctionsPresenter(this);
     }
 
     @Override
@@ -71,31 +74,35 @@ public class Config extends BaseFragment implements DataView {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_config, container, false);
         edtMaxSendCount = view.findViewById(R.id.max_send_count);
-        edtMaxSendCount = view.findViewById(R.id.last_activity_trim);
-        edtMaxSendCount = view.findViewById(R.id.random_str_1);
-        edtMaxSendCount = view.findViewById(R.id.random_str_2);
-        edtMaxSendCount = view.findViewById(R.id.randomTimestamp);
-        edtMaxSendCount = view.findViewById(R.id.admin_user);
-        edtMaxSendCount = view.findViewById(R.id.admin_pass);
-        edtMaxSendCount = view.findViewById(R.id.charset);
-        edtMaxSendCount = view.findViewById(R.id.autocall_sendmails);
-        edtMaxSendCount = view.findViewById(R.id.add_sub_size);
-        edtMaxSendCount = view.findViewById(R.id.subs_per_page);
-        edtMaxSendCount = view.findViewById(R.id.sitecode);
-        edtMaxSendCount = view.findViewById(R.id.check_mail);
-        edtMaxSendCount = view.findViewById(R.id.check_bounces);
-        edtMaxSendCount = view.findViewById(R.id.tinyMCE);
-        edtMaxSendCount = view.findViewById(R.id.daily_limit);
-        edtMaxSendCount = view.findViewById(R.id.daily_count);
-        edtMaxSendCount = view.findViewById(R.id.daily_reset);
+        edtLastActivityTrim = view.findViewById(R.id.last_activity_trim);
+        edtRandomStr1 = view.findViewById(R.id.random_str_1);
+        edtRandomStr2 = view.findViewById(R.id.random_str_2);
+        edtRandomTimeStamp = view.findViewById(R.id.randomTimestamp);
+        edtAdminUser = view.findViewById(R.id.admin_user);
+        edtAdminPass = view.findViewById(R.id.admin_pass);
+        edtCharSet = view.findViewById(R.id.charset);
+        edtAutoCallMail = view.findViewById(R.id.autocall_sendmails);
+        edtAddSubSize = view.findViewById(R.id.add_sub_size);
+        edtSubPerPage = view.findViewById(R.id.subs_per_page);
+        edtSiteCode = view.findViewById(R.id.sitecode);
+        edtCheckMail = view.findViewById(R.id.check_mail);
+        edtCheckBounces = view.findViewById(R.id.check_bounces);
+        edttinyMce = view.findViewById(R.id.tinyMCE);
+        edtDailyLimit = view.findViewById(R.id.daily_limit);
+        edtDailyCount = view.findViewById(R.id.daily_count);
+        edtDailyReset = view.findViewById(R.id.daily_reset);
         addConfig = view.findViewById(R.id.addConfig);
+        dialog = new Dialog(Objects.requireNonNull(getContext()));
+        loadDialog("Adding Config");
         addConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject jsonObject = createJSONObject();
                 if(jsonObject != null)
-                    vitalFunctionsPresenter.addConfig(jsonObject);
-                else showDialog("Some Fields are empty","Dismiss");
+                    if(AppUtils.isOnline(Objects.requireNonNull(getContext())))
+                        vitalFunctionsPresenter.addConfig(jsonObject);
+                    else showDialog("Please Check Your Internet", "Dismiss");
+                else showDialog("Some Fields are empty", "Dismiss");
             }
         });
         return view;
@@ -117,12 +124,12 @@ public class Config extends BaseFragment implements DataView {
 
     @Override
     public void showProgress() {
-
+        dialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        dialog.dismiss();
     }
 
 
@@ -178,11 +185,11 @@ public class Config extends BaseFragment implements DataView {
                 jsonObject.put("random_str_2", randomStr2Str);
                 jsonObject.put("random_timestamp", randomTimeStampStr);
                 jsonObject.put("admin_user", adminUserStr);
-                jsonObject.put("admin_password", adminPasswordStr);
+                jsonObject.put("admin_pass", adminPasswordStr);
                 jsonObject.put("charset", charSetStr);
                 jsonObject.put("autocall_sendmails", autoCallSendMailStr);
                 jsonObject.put("add_sub_size",addSubSizerStr);
-                jsonObject.put("sub_per_page", subPerPageStr);
+                jsonObject.put("subs_per_page", subPerPageStr);
                 jsonObject.put("site_code", siteCodeStr);
                 jsonObject.put("check_mail", checkMailStr);
                 jsonObject.put("check_bounces", checkBouncesStr);
@@ -218,5 +225,13 @@ public class Config extends BaseFragment implements DataView {
         });
 
         dialog.show();
+    }
+
+    private void loadDialog(String msg1){
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.loading);
+        dialog.setCancelable(false);
+        TextView message1 = (TextView) dialog.findViewById(R.id.alert_message);
+        message1.setText(msg1);
     }
 }

@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.asg.root.salescrm.R;
+import com.asg.root.salescrm.Utils.AppUtils;
 import com.asg.root.salescrm.Views.DataView;
 import com.asg.root.salescrm.presenter.VitalFunctionsPresenter;
 
@@ -31,7 +32,7 @@ public class Subscriber extends BaseFragment implements DataView {
     private EditText responderId, sentMsg, email, timeJoined,
             realTimeJoined, canReceiveHTML, lastActivity,
             firstName, lastName, ipAdd, referralSource, uniqueCode, confirmed;
-
+    private Dialog dialog;
     private Button addSubs;
     private VitalFunctionsPresenter vitalFunctionsPresenter;
 
@@ -73,14 +74,18 @@ public class Subscriber extends BaseFragment implements DataView {
         uniqueCode = view.findViewById(R.id.uniqueCode);
         confirmed = view.findViewById(R.id.confirmed);
         addSubs = view.findViewById(R.id.addSubscriber);
+        dialog = new Dialog(Objects.requireNonNull(getContext()));
+        loadDialog("Adding Subscriber");
 
         addSubs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject jsonObject = createJSONObject();
                 if(jsonObject != null)
-                    vitalFunctionsPresenter.addSubscriber(jsonObject);
-                else showDialog("Some Fields are empty","Dismiss");
+                    if(AppUtils.isOnline(Objects.requireNonNull(getContext())))
+                        vitalFunctionsPresenter.addSubscriber(jsonObject);
+                    else showDialog("Please Check Your Internet", "Dismiss");
+                else showDialog("Some Fields are empty", "Dismiss");
             }
         });
 
@@ -99,12 +104,12 @@ public class Subscriber extends BaseFragment implements DataView {
 
     @Override
     public void showProgress() {
-
+        dialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        dialog.dismiss();
     }
 
     private JSONObject createJSONObject(){
@@ -184,5 +189,13 @@ public class Subscriber extends BaseFragment implements DataView {
         });
 
         dialog.show();
+    }
+
+    private void loadDialog(String msg1){
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.loading);
+        dialog.setCancelable(false);
+        TextView message1 = (TextView) dialog.findViewById(R.id.alert_message);
+        message1.setText(msg1);
     }
 }

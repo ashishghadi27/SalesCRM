@@ -20,7 +20,7 @@ import com.asg.root.salescrm.R;
  */
 public class FormOptions extends BaseFragment {
 
-    private LinearLayout addSubs, addBouncer;
+    private LinearLayout addSubs, addBouncer, addConfig, addCustomField, addUser;
     public FormOptions() {
         // Required empty public constructor
     }
@@ -34,7 +34,9 @@ public class FormOptions extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         addSubs = view.findViewById(R.id.addSubscriber);
         addBouncer = view.findViewById(R.id.addBouncer);
-
+        addConfig = view.findViewById(R.id.addConfig);
+        addCustomField = view.findViewById(R.id.addCustomField);
+        addUser = view.findViewById(R.id.addUser);
         addSubs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +48,27 @@ public class FormOptions extends BaseFragment {
             @Override
             public void onClick(View v) {
                 addFragment(new Bouncer(), "Bouncer");
+            }
+        });
+
+        addConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFragment(new Config(), "Config");
+            }
+        });
+
+        addCustomField.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFragment(new CustomFields(), "Custom");
+            }
+        });
+
+        addUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFragment(new User(), "User");
             }
         });
     }

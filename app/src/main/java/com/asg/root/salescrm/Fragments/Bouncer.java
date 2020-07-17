@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.asg.root.salescrm.R;
+import com.asg.root.salescrm.Utils.AppUtils;
 import com.asg.root.salescrm.Views.DataView;
 import com.asg.root.salescrm.presenter.VitalFunctionsPresenter;
 
@@ -40,6 +41,7 @@ public class Bouncer extends BaseFragment implements DataView {
     private EditText edtSpamHeader;
     private EditText edtNotifyOwner;
     private Button addBouncer;
+    private Dialog dialog;
     private VitalFunctionsPresenter vitalFunctionsPresenter;
 
     public Bouncer() {
@@ -53,6 +55,7 @@ public class Bouncer extends BaseFragment implements DataView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        vitalFunctionsPresenter = new VitalFunctionsPresenter(this);
     }
 
     @Override
@@ -72,13 +75,17 @@ public class Bouncer extends BaseFragment implements DataView {
         edtSpamHeader = view.findViewById(R.id.spamHeader);
         edtNotifyOwner = view.findViewById(R.id.notifyOwner);
         addBouncer = view.findViewById(R.id.addBouncer);
+        dialog = new Dialog(Objects.requireNonNull(getContext()));
+        loadDialog("Adding Bouncer");
         addBouncer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject jsonObject = createJSONObject();
                 if(jsonObject != null)
-                    vitalFunctionsPresenter.addBouncer(jsonObject);
-                else showDialog("Some Fields are empty","Dismiss");
+                    if(AppUtils.isOnline(Objects.requireNonNull(getContext())))
+                        vitalFunctionsPresenter.addBouncer(jsonObject);
+                    else showDialog("Please Check Your Internet", "Dismiss");
+                else showDialog("Some Fields are empty", "Dismiss");
             }
         });
         return view;
@@ -101,12 +108,12 @@ public class Bouncer extends BaseFragment implements DataView {
 
     @Override
     public void showProgress() {
-
+        dialog.show();
     }
 
     @Override
     public void hideProgress() {
-
+        dialog.dismiss();
     }
 
 
@@ -180,5 +187,13 @@ public class Bouncer extends BaseFragment implements DataView {
         });
 
         dialog.show();
+    }
+
+    private void loadDialog(String msg1){
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.loading);
+        dialog.setCancelable(false);
+        TextView message1 = (TextView) dialog.findViewById(R.id.alert_message);
+        message1.setText(msg1);
     }
 }
