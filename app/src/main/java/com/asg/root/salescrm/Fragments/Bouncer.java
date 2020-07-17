@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.asg.root.salescrm.R;
+import com.asg.root.salescrm.Views.DataView;
 
-public class Bouncer extends BaseFragment {
+import org.json.JSONObject;
+
+public class Bouncer extends BaseFragment implements DataView {
 
     public Bouncer() {
         // Required empty public constructor
@@ -37,5 +40,25 @@ public class Bouncer extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onDataFetched(JSONObject jsonObject) {
+
+    }
+
+    @Override
+    public void onDataFetchedError(String err) {
+
+    }
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
     }
 }

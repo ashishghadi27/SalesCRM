@@ -80,6 +80,7 @@ public class Subscriber extends BaseFragment implements DataView {
                 JSONObject jsonObject = createJSONObject();
                 if(jsonObject != null)
                     vitalFunctionsPresenter.addSubscriber(jsonObject);
+                else showDialog("Some Fields are empty","Dismiss");
             }
         });
 

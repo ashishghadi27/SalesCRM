@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.asg.root.salescrm.R;
 
-public class CustomFields extends Fragment {
+public class CustomFields extends BaseFragment {
 
     public CustomFields() {
         // Required empty public constructor
