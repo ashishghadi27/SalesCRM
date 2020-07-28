@@ -79,7 +79,7 @@ public class FormOptions extends BaseFragment {
         addSales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialog("Something is Cooking here", "Dismiss");
+                showDialog();
             }
         });
 
@@ -116,7 +116,7 @@ public class FormOptions extends BaseFragment {
         Objects.requireNonNull(getActivity()).finish();
     }
 
-    private void showDialog(String msg1, String msg2){
+    private void showDialog(){
         final Dialog dialog = new Dialog(Objects.requireNonNull(getContext()));
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.choice);
