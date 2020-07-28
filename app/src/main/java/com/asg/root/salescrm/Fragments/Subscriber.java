@@ -132,16 +132,12 @@ public class Subscriber extends BaseFragment implements DataView {
         confirmedStr = confirmed.getText() + "";
 
         boolean allPresent = !TextUtils.isEmpty(responderIdStr) &&
-                !TextUtils.isEmpty(sentMsgStr) &&
                 !TextUtils.isEmpty(emailStr) &&
                 !TextUtils.isEmpty(timeJoinedStr) &&
                 !TextUtils.isEmpty(realTimeJoinedStr) &&
-                !TextUtils.isEmpty(canReceiveHTMLStr) &&
-                !TextUtils.isEmpty(lastActivityStr) &&
                 !TextUtils.isEmpty(firstNameStr) &&
                 !TextUtils.isEmpty(lastNameStr) &&
                 !TextUtils.isEmpty(ipAddStr) &&
-                !TextUtils.isEmpty(referralSourceStr) &&
                 !TextUtils.isEmpty(uniqueCodeStr) &&
                 !TextUtils.isEmpty(confirmedStr);
 

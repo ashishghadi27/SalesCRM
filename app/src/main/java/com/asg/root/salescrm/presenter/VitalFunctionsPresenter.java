@@ -22,9 +22,9 @@ public class VitalFunctionsPresenter implements AppNetworkResponse {
         volley.post(Constants.apiAddSubscriber,jsonObject,this, Constants.ADD_SUBS_REQUEST_CODE);
     }
 
-    public void addBouncer(JSONObject jsonObject){
+    public void addResponder(JSONObject jsonObject){
         view.showProgress();
-        volley.post(Constants.apiAddBouncer,jsonObject,this, Constants.ADD_BOUNCER_REQUEST_CODE);
+        volley.post(Constants.apiAddResp,jsonObject,this, Constants.ADD_RESP_REQUEST_CODE);
     }
 
     public void addConfig(JSONObject jsonObject){
@@ -49,7 +49,7 @@ public class VitalFunctionsPresenter implements AppNetworkResponse {
                 view.hideProgress();
                 view.onDataFetched(jsonObject);
                 break;
-            case Constants.ADD_BOUNCER_REQUEST_CODE:
+            case Constants.ADD_RESP_REQUEST_CODE:
                 view.hideProgress();
                 view.onDataFetched(jsonObject);
                 break;
@@ -75,7 +75,7 @@ public class VitalFunctionsPresenter implements AppNetworkResponse {
                 view.hideProgress();
                 view.onDataFetchedError(errMsg);
                 break;
-            case Constants.ADD_BOUNCER_REQUEST_CODE:
+            case Constants.ADD_RESP_REQUEST_CODE:
                 view.hideProgress();
                 view.onDataFetchedError(errMsg);
                 break;

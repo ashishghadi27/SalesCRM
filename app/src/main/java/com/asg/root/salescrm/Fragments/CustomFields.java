@@ -145,21 +145,9 @@ public class CustomFields extends BaseFragment implements DataView {
         boolean allPresent = !TextUtils.isEmpty(user_attachedStr) &&
                 !TextUtils.isEmpty(resp_attachedStr) &&
                 !TextUtils.isEmpty(email_attachedStr) &&
-                !TextUtils.isEmpty(streetaddress_1Str) &&
-                !TextUtils.isEmpty(streetaddress_2Str) &&
                 !TextUtils.isEmpty(cityStr) &&
-                !TextUtils.isEmpty(stateStr) &&
-                !TextUtils.isEmpty(zipcodeStr) &&
-                !TextUtils.isEmpty(homephoneStr) &&
-                !TextUtils.isEmpty(best_contact_timeStr) &&
                 !TextUtils.isEmpty(other_offersStr) &&
-                !TextUtils.isEmpty(full_nameStr) &&
-                !TextUtils.isEmpty(reasonStr) &&
-                !TextUtils.isEmpty(incomeStr) &&
-                !TextUtils.isEmpty(interestStr) &&
-                !TextUtils.isEmpty(hoursStr) &&
-                !TextUtils.isEmpty(sourceStr) &&
-                !TextUtils.isEmpty(variationStr);
+                !TextUtils.isEmpty(full_nameStr);
 
         if(allPresent){
             JSONObject jsonObject = new JSONObject();

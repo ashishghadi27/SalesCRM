@@ -1,5 +1,6 @@
 package com.asg.root.salescrm.Fragments;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,11 +12,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.asg.root.salescrm.Activities.Authentication;
-import com.asg.root.salescrm.Activities.MainActivity;
 import com.asg.root.salescrm.R;
 
 import java.util.Objects;
@@ -29,7 +31,7 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class FormOptions extends BaseFragment {
 
-    private LinearLayout addSubs, addBouncer, addConfig, addCustomField, addUser;
+    private LinearLayout addSubs, addResp, addSales, addCustomField, addUser;
     private ImageView logout;
     public FormOptions() {
         // Required empty public constructor
@@ -43,8 +45,8 @@ public class FormOptions extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         addSubs = view.findViewById(R.id.addSubscriber);
-        addBouncer = view.findViewById(R.id.addBouncer);
-        addConfig = view.findViewById(R.id.addConfig);
+        addResp = view.findViewById(R.id.addBouncer);
+        addSales = view.findViewById(R.id.addConfig);
         addCustomField = view.findViewById(R.id.addCustomField);
         addUser = view.findViewById(R.id.addUser);
         logout = view.findViewById(R.id.logout);
@@ -67,17 +69,17 @@ public class FormOptions extends BaseFragment {
             }
         });
 
-        addBouncer.setOnClickListener(new View.OnClickListener() {
+        addResp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new Bouncer(), "Bouncer");
+                addFragment(new Responder(), "Responder");
             }
         });
 
-        addConfig.setOnClickListener(new View.OnClickListener() {
+        addSales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new Config(), "Config");
+                showDialog("Something is Cooking here", "Dismiss");
             }
         });
 
@@ -112,5 +114,38 @@ public class FormOptions extends BaseFragment {
         Intent intent = new Intent(getActivity(), Authentication.class);
         startActivity(intent);
         Objects.requireNonNull(getActivity()).finish();
+    }
+
+    private void showDialog(String msg1, String msg2){
+        final Dialog dialog = new Dialog(Objects.requireNonNull(getContext()));
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.choice);
+
+        TextView message1 = (TextView) dialog.findViewById(R.id.item1);
+        TextView message2 = (TextView) dialog.findViewById(R.id.item2);
+        TextView dismiss = (TextView) dialog.findViewById(R.id.dismiss);
+
+        message1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        message2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        dialog.show();
     }
 }

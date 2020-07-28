@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -27,29 +26,31 @@ import org.json.JSONObject;
 
 import java.util.Objects;
 
-public class Bouncer extends BaseFragment implements DataView {
+public class Responder extends BaseFragment implements DataView {
 
-    private EditText edtEmail;
     private EditText edtEnable;
-    private EditText edtHost;
-    private EditText edtPort;
-    private EditText edtUsername;
-    private EditText edtPassword;
-    private EditText edtMailBox;
-    private EditText edtMailType;
-    private EditText edtDeleteLevel;
-    private EditText edtSpamHeader;
+    private EditText edtName;
+    private EditText edtrespDesc;
+    private EditText edtOwnerEmail;
+    private EditText edtOwnerName;
+    private EditText edtreplyEmail;
+    private EditText edtMsgList;
+    private EditText edtOptMethod;
+    private EditText edtOptInRedir;
+    private EditText edtOptOutRedir;
+    private EditText edtOptInDisp;
+    private EditText edtOptOutDisp;
     private EditText edtNotifyOwner;
-    private Button addBouncer;
+    private Button addResponder;
     private Dialog dialog;
     private VitalFunctionsPresenter vitalFunctionsPresenter;
 
-    public Bouncer() {
+    public Responder() {
         // Required empty public constructor
     }
 
-    public static Bouncer newInstance(String param1, String param2) {
-        return new Bouncer();
+    public static Responder newInstance(String param1, String param2) {
+        return new Responder();
     }
 
     @Override
@@ -62,28 +63,30 @@ public class Bouncer extends BaseFragment implements DataView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bouncer, container, false);
-        edtEmail = view.findViewById(R.id.email);
+        View view = inflater.inflate(R.layout.fragment_responder, container, false);
         edtEnable = view.findViewById(R.id.enabled);
-        edtHost = view.findViewById(R.id.host);
-        edtPort = view.findViewById(R.id.port);
-        edtUsername = view.findViewById(R.id.username);
-        edtPassword = view.findViewById(R.id.password);
-        edtMailBox = view.findViewById(R.id.mailbox);
-        edtMailType = view.findViewById(R.id.mailType);
-        edtDeleteLevel  = view.findViewById(R.id.deleteLevel);
-        edtSpamHeader = view.findViewById(R.id.spamHeader);
+        edtName = view.findViewById(R.id.name);
+        edtrespDesc = view.findViewById(R.id.respDesc);
+        edtOwnerEmail = view.findViewById(R.id.ownerEmail);
+        edtOwnerName = view.findViewById(R.id.ownerName);
+        edtreplyEmail  = view.findViewById(R.id.replyToEmail);
+        edtMsgList = view.findViewById(R.id.messageList);
+        edtOptMethod = view.findViewById(R.id.optMethod);
+        edtOptInRedir = view.findViewById(R.id.optInRedir);
+        edtOptOutRedir = view.findViewById(R.id.optOutRedir);
+        edtOptInDisp = view.findViewById(R.id.optInDisp);
+        edtOptOutDisp = view.findViewById(R.id.optOutDisp);
         edtNotifyOwner = view.findViewById(R.id.notifyOwner);
-        addBouncer = view.findViewById(R.id.addBouncer);
+        addResponder = view.findViewById(R.id.addResponder);
         dialog = new Dialog(Objects.requireNonNull(getContext()));
-        loadDialog("Adding Bouncer");
-        addBouncer.setOnClickListener(new View.OnClickListener() {
+        loadDialog("Adding Responder");
+        addResponder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject jsonObject = createJSONObject();
                 if(jsonObject != null)
                     if(AppUtils.isOnline(Objects.requireNonNull(getContext())))
-                        vitalFunctionsPresenter.addBouncer(jsonObject);
+                        vitalFunctionsPresenter.addResponder(jsonObject);
                     else showDialog("Please Check Your Internet", "Dismiss");
                 else showDialog("Some Fields are empty", "Dismiss");
             }
@@ -118,47 +121,45 @@ public class Bouncer extends BaseFragment implements DataView {
 
 
     private JSONObject createJSONObject(){
-        String emailStr, enableStr, hostStr, portStr,
-                usernameStr, passwordStr, mailboxStr,
-                mailtypeStr, deletelevelStr,spamheaderStr, notifyownerSourceStr;
+        String enableStr, nameStr, respDescStr, ownerEmailStr, ownerNameStr, replyEmailStr,
+                msgListStr, optMethodStr, optInRedirStr, optOutRedirStr, optInRedirDisplayStr, optOutRedirDisplayStr, notifyOwnerStr;
         JSONObject jsonObject = new JSONObject();
-        emailStr = edtEmail.getText() + "";
         enableStr = edtEnable.getText() + "";
-        hostStr = edtHost.getText() + "";
-        portStr = edtPort.getText() + "";
-        usernameStr = edtUsername.getText() + "";
-        passwordStr = edtPassword.getText() + "";
-        mailboxStr = edtMailBox.getText() + "";
-        mailtypeStr = edtMailType.getText() + "";
-        deletelevelStr = edtDeleteLevel.getText() + "";
-       spamheaderStr = edtSpamHeader.getText() + "";
-        notifyownerSourceStr = edtNotifyOwner.getText() + "";
-        boolean allPresent = !TextUtils.isEmpty(emailStr) &&
-                !TextUtils.isEmpty(enableStr) &&
-                !TextUtils.isEmpty(hostStr) &&
-                !TextUtils.isEmpty(portStr) &&
-                !TextUtils.isEmpty(usernameStr) &&
-                !TextUtils.isEmpty(passwordStr) &&
-                !TextUtils.isEmpty(mailboxStr) &&
-                !TextUtils.isEmpty(mailtypeStr) &&
-                !TextUtils.isEmpty(deletelevelStr) &&
-                !TextUtils.isEmpty(spamheaderStr) &&
-                !TextUtils.isEmpty(notifyownerSourceStr);
+        nameStr = edtName.getText() + "";
+        respDescStr = edtrespDesc.getText() + "";
+        ownerEmailStr = edtOwnerEmail.getText() + "";
+        ownerNameStr = edtOwnerName.getText() + "";
+        replyEmailStr = edtreplyEmail.getText() + "";
+        msgListStr = edtMsgList.getText() + "";
+        optMethodStr = edtOptMethod.getText() + "";
+        optInRedirStr = edtOptInRedir.getText() + "";
+        optOutRedirStr = edtOptOutRedir.getText() + "";
+        optInRedirDisplayStr = edtOptInDisp.getText() + "";
+        optOutRedirDisplayStr = edtOptOutDisp.getText() + "";
+        notifyOwnerStr = edtNotifyOwner.getText() + "";
+        boolean allPresent = !TextUtils.isEmpty(enableStr) &&
+                !TextUtils.isEmpty(nameStr) &&
+                !TextUtils.isEmpty(ownerEmailStr) &&
+                !TextUtils.isEmpty(replyEmailStr) &&
+                !TextUtils.isEmpty(optMethodStr) &&
+                !TextUtils.isEmpty(notifyOwnerStr);
 
         if(allPresent){
             try {
                 Log.v("IN", "HERE");
-                jsonObject.put("EmailAddy", emailStr);
                 jsonObject.put("Enabled", enableStr);
-                jsonObject.put("host", hostStr);
-                jsonObject.put("port", portStr);
-                jsonObject.put("username", usernameStr);
-                jsonObject.put("password", passwordStr);
-                jsonObject.put("mailbox", mailboxStr);
-                jsonObject.put("mailtype", mailtypeStr);
-                jsonObject.put("DeleteLevel", deletelevelStr);
-                jsonObject.put("SpamHeader",spamheaderStr);
-                jsonObject.put("NotifyOwner", notifyownerSourceStr);
+                jsonObject.put("Name", nameStr);
+                jsonObject.put("ResponderDesc", respDescStr);
+                jsonObject.put("OwnerEmail", ownerEmailStr);
+                jsonObject.put("OwnerName", ownerNameStr);
+                jsonObject.put("ReplyToEmail", replyEmailStr);
+                jsonObject.put("MsgList", msgListStr);
+                jsonObject.put("OptMethod", optMethodStr);
+                jsonObject.put("OptInRedir", optInRedirStr);
+                jsonObject.put("OptOutRedir",optOutRedirStr);
+                jsonObject.put("OptInDisplay", optInRedirDisplayStr);
+                jsonObject.put("OptOutDisplay",optOutRedirDisplayStr);
+                jsonObject.put("NotifyOwnerOnSub", notifyOwnerStr);
                 return jsonObject;
 
             } catch (JSONException e) {

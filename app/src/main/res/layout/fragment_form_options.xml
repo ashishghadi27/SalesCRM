@@ -81,7 +81,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Add Subscriber"
+                        android:text="Subscriber"
                         android:paddingHorizontal="10dp"
                         android:paddingBottom="10dp"
                         android:textAlignment="center"
@@ -108,14 +108,13 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/bouncer"
                         android:padding="20dp"
-                        />
+                        android:src="@drawable/responder" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Add Bouncer"
+                        android:text="Responder"
                         android:paddingHorizontal="10dp"
                         android:paddingBottom="10dp"
                         android:textAlignment="center"
@@ -149,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:background="@drawable/yellow_back"
-                    android:layout_toStartOf="@+id/div2"
+                    android:layout_toEndOf="@+id/div2"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:gravity="center">
@@ -157,14 +156,14 @@
                     <ImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/config"
+                        android:src="@drawable/sales"
                         android:padding="20dp"
                         />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Add Config"
+                        android:text="Sales"
                         android:paddingHorizontal="10dp"
                         android:paddingBottom="10dp"
                         android:textAlignment="center"
@@ -183,7 +182,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:background="@drawable/green_back"
-                    android:layout_toEndOf="@+id/div2"
+                    android:layout_toStartOf="@+id/div2"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:gravity="center">
@@ -198,7 +197,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Add Custom Field"
+                        android:text="Custom Field"
                         android:paddingHorizontal="10dp"
                         android:paddingBottom="10dp"
                         android:textAlignment="center"
